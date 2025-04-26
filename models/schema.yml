@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: fact_taxi_trips
+    description: "A fact table containing taxi trip timestamps, trip durations, and pickup/dropoff times by hour and day."
+    columns:
+      - name: unique_id
+        description: "A unique identifier for each taxi trip."
+        tests:
+          - unique
+          - not_null
+      - name: pickup_timestamp
+        description: "Timestamp when the taxi trip started."
+      - name: dropoff_timestamp
+        description: "Timestamp when the taxi trip ended."
+      - name: duration_minutes
+        description: "Duration of the trip in minutes, rounded to two decimals."
+      - name: pickup_hour_of_day
+        description: "Hour of the day (0-23) when the pickup occurred."
+      - name: pickup_day_of_week
+        description: "Name of the day of the week when the pickup occurred."
+      - name: dropoff_hour_of_day
+        description: "Hour of the day (0-23) when the dropoff occurred."
+      - name: dropoff_day_of_week
+        description: "Name of the day of the week when the dropoff occurred."
+
+  - name: hour_day_trip_avg
+    description: "A table containing the average trip duration by pickup hour and pickup day of the week."
+    columns:
+      - name: pickup_day_of_week
+        description: "Name of the day of the week when the pickup occurred."
+      - name: pickup_hour_of_day
+        description: "Hour of the day (0-23) when the pickup occurred."
+      - name: average_trip_duration
+        description: "Average duration of trips (in minutes) for the given pickup hour and day."
