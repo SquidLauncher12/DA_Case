@@ -7,6 +7,7 @@ WITH rides AS(
         TO_TIMESTAMP(tpepdropoffdatetime / 1000000000.0) AS dropoff_timestamp
     FROM raw_taxi_trips
 ),
+
 trip_duration AS(
     SELECT
         unique_id, pickup_timestamp, dropoff_timestamp,
