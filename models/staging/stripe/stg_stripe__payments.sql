@@ -1,2 +1,2 @@
 SELECT *
-FROM raw.stripe.payment
+FROM {{ source('stripe', 'payment') }}

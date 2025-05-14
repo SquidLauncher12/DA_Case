@@ -5,7 +5,7 @@ WITH rides AS(
         unique_id,
         TO_TIMESTAMP(tpeppickupdatetime / 1000000000.0) AS pickup_timestamp,
         TO_TIMESTAMP(tpepdropoffdatetime / 1000000000.0) AS dropoff_timestamp
-    FROM raw_taxi_trips
+    FROM {{ source('public', 'raw_taxi_trips') }}
 ),
 
 trip_duration AS(
