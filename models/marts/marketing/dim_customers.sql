@@ -26,12 +26,23 @@ customer_orders as (
 ),
 
 payments as (
-    select orderid, amount, stripe_payments.status, orders.customer_id 
+
+    select order_id, amount, status, customer_id 
     from {{ref('stg_stripe__payments')}} as stripe_payments
-    left join orders ON orders.order_id = stripe_payments.orderid
+    left join orders using (order_id)
     where stripe_payments.status = 'success'
-    
+
 ),
+/*
+final as (
+    select
+        sum(payments.amount) as lifetime_value
+    from
+        payments
+    
+    
+)
+*/
 
 final as (
 
@@ -57,5 +68,6 @@ final as (
         customer_orders.most_recent_order_date,
         customer_orders.number_of_orders
 )
+
 
 select * from final
