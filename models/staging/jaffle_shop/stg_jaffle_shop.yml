@@ -24,6 +24,7 @@ models:
                 values: ['shipped', 'completed','return_pending', 'returned', 'placed']
             - not_null
         - name: customer_id
+          description: foreign key
           tests:
             - unique
             - relationships:

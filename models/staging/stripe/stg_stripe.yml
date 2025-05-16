@@ -1,0 +1,18 @@
+version: 2
+
+models:
+    - name: stg_stripe__payments
+      description: list of payments
+      columns:
+        - name: payment_id
+          description: primary key
+          tests:
+            - unique
+            - not_null
+        - name: status
+          description: "{{ docs('payment_status') }}"
+          tests:
+            - accepted_values:
+                values: ['success','fail']
+            - not_null
+                
