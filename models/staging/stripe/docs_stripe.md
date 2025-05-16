@@ -2,7 +2,7 @@
 
 | status         | definition                                       |
 | -------------- | ------------------------------------------------ |
-| success        | Payent successfully placed                       |
+| success        | Payment successfully placed                       |
 | fail           | Payment failed                                   |
 
-{% enddocs%}
+{% enddocs %}

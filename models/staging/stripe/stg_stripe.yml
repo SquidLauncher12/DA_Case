@@ -10,7 +10,7 @@ models:
             - unique
             - not_null
         - name: status
-          description: "{{ docs('payment_status') }}"
+          description: "{{ doc('payment_status') }}"
           tests:
             - accepted_values:
                 values: ['success','fail']
