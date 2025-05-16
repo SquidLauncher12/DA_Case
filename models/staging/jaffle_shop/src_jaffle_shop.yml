@@ -2,18 +2,23 @@ version: 2
 
 sources:
   - name: jaffle_shop
+    description: snwoflake databse schema
     database: raw
     schema: jaffle_shop
     tables:
       - name: customers
+        description: raw customer data
         columns:
           - name: id
+            description: primary key
             tests:
               - unique
               - not_null
       - name: orders
+        description: raw orders data
         columns:
           - name: id
+            description: primary key
             tests:
               - unique
               - not_null
